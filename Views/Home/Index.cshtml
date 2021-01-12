@@ -1,0 +1,58 @@
+﻿@model BizSteam.Models.ContactFormViewModel
+
+@{
+    ViewData["Title"] = "Testing";
+    Layout = "_Layout";
+}
+<html>
+<head>
+    <title>Index</title>
+
+    <script>
+        $(document).ready(function() {
+            $('#submitBtn').hover(function() {
+                $(this).css("background-color", "#1997b7");
+            }, function(){
+                    $(this).css("background-color", "#0087AA");
+            });
+        })
+    </script>
+</head>
+<body>
+
+    <h1 style="font-family: Arial; font-size: 38px"><b> Contact Us Form </b></h1>
+    <br />
+    <i class="text-info" style="font-size: 25px;font-family: Arial">@ViewBag.Message</i>
+<div class="row">
+    <div class="col-md-7">
+            <form asp-action="CreateForm">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="FirstName" class="control-label" ></label>
+                    <input asp-for="FirstName" class="form-control"  />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LastName" class="control-label" ></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label" ></label>
+                    <input asp-for="Email" class="form-control"  />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Message" class="control-label" ></label>
+                    <textarea asp-for="Message" class="form-control" style = "height: 100px"></textarea>
+                    <span asp-validation-for="Message" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="SUBMIT" class="btn btn-primary"  id="submitBtn" />
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
